@@ -1,5 +1,5 @@
 function renderGDPLineChart() {
-  const dataUrl = "GDP-Data Set.csv";
+  const dataUrl = "https://cdn.jsdelivr.net/gh/funwithkami/Gdp-Chart/GDP-Data Set.csv";
   const formats = {
     "USD - trillion or hundred billion": {
       tick: d3.format("$~s"),
