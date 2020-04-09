@@ -26,7 +26,7 @@ function renderGDPLineChart() {
   }
 
   function init() {
-    d3.csv(dataUrl, d3.autoType).then((csv) => {
+    d3.csv("https://cdn.jsdelivr.net/gh/funwithkami/Gdp-Chart/GDP-Data Set.csv", d3.autoType).then((csv) => {
       // Process data
       const years = csv.columns.slice(6);
       const measures = [...new Set(csv.map((d) => d.Measure))];
