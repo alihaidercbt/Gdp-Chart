@@ -1,5 +1,4 @@
 function renderGDPLineChart() {
-  // const dataUrl = "GDP-Data Set.csv";
   function formatSI(value) {
     const string = d3.format("$~s")(value);
     if (["T", "B", "M"].includes(string[string.length - 1])) {
