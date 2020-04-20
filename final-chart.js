@@ -1,8 +1,6 @@
- const dataUrl =
-        "https://rawcdn.githack.com/funwithkami/Gdp-Chart/5c9023b87ea0f2105ab3edf6cdd92f4e7e191996/GDP-Data Set.csv";
-     
-     
-        function renderGDPLineChart(dataUrl) {
+   const dataUrl =
+        "https://gist.githubusercontent.com/vondukeelstein/32a1d7b886a27542527bb44477260ae8/raw/a84645468e86b325715caf13f01aa7ffbd0102f4/graphchart.csv";
+      function renderGDPLineChart(dataUrl) {
         function formatSI(value) {
           const string = d3.format("~s")(value);
           if (["T", "B", "M"].includes(string[string.length - 1])) {
@@ -21,6 +19,23 @@
             value: (d) => `${d3.format(".1f")(d)}%`,
           },
         };
+        const measures = [
+          {
+            name: "Nominal GDP (current USD)",
+            axisText: "Nominal GDP (USD)",
+            selectText: "Nominal GDP (Current USD)",
+          },
+          {
+            name: "Real GDP (constant 2010 USD)",
+            axisText: "Real GDP (2010 USD)",
+            selectText: "Real GDP (Constant 2010 USD)",
+          },
+          {
+            name: "GDP Growth (%)",
+            axisText: "GDP Growth (%)",
+            selectText: "GDP Growth (%)",
+          },
+        ];
         const dispatch = d3.dispatch(
           "namechange",
           "measurechange",
@@ -49,7 +64,6 @@
           d3.csv(dataUrl, d3.autoType).then((csv) => {
             // Process data
             const years = csv.columns.slice(6);
-            const measures = [...new Set(csv.map((d) => d.Measure))];
             const transformed = csv.map((d) => ({
               name: d.Name,
               measure: d.Measure,
@@ -73,7 +87,7 @@
               ...new Set(
                 csv.filter((d) => "Country" === d.Class).map((d) => d.Name)
               ),
-            ];
+            ].sort();
             const names = [...regionNames, ...countryNames];
 
             // Containers
@@ -82,7 +96,7 @@
               .classed("container-fluid", true);
             container
               .append("div")
-              .attr("class", "row py-3")
+              .attr("class", "row")
               .call((row) =>
                 row.append("div").attr("class", "chart-container col")
               )
@@ -103,7 +117,6 @@
                       .append("div")
                       .attr("class", "name-control country-name-control")
                   )
-                  
               );
             container
               .append("div")
@@ -122,8 +135,8 @@
 
             // Initialization
             const selected = {
-              names: names.slice(),
-              measure: measures[0],
+              names: ["World"],
+              measure: measures[0].name,
               years: [+years[0], +years[years.length - 1]],
             };
 
@@ -185,10 +198,11 @@
         }
 
         function renderGDPLineChart(container, data, formats) {
-          const margin = { top: 30, right: 120, bottom: 50, left: 70 };
+          const margin = { top: 30, right: 120, bottom: 40, left: 80 };
           const height = 480;
           const lineWidth = 2;
           const circleRadius = 4;
+          const circleStrokeWidth = 8;
           let width, label, formatTick, formatValue, gLine, gLabel;
 
           const x = d3.scaleLinear();
@@ -206,46 +220,63 @@
           const gLines = svg.append("g");
           const gLabels = svg.append("g");
 
-          const tooltip = container
+          const tooltipBox = container
             .append("div")
-            .attr("class", "chart-tooltip");
+            .attr("class", "chart-tooltip chart-tooltip-box");
+          const tooltipArrow = container
+            .append("div")
+            .attr("class", "chart-tooltip chart-tooltip-arrow");
+
           function showTooltip(d) {
             const p = d3.select(this.parentNode).datum();
-            tooltip.html(`
-              <div>${p.name}</div>
-              <div>${p.measure}</div>
+            tooltipBox.html(`
               <div>${d.x}</div>
-              <div>${formatValue(d.y)}</div>
+              <div><span style="color: ${p.color}">${
+              p.name
+            }</span>: <span style="font-weight: bold;">${formatValue(
+              d.y
+            )}</span></div>
             `);
 
-            const circleBox = this.getBoundingClientRect();
-            const tooltipBox = tooltip.node().getBoundingClientRect();
-            const containerBox = container.node().getBoundingClientRect();
+            const circleBBox = this.getBoundingClientRect();
+            const tooltipBBox = tooltipBox.node().getBoundingClientRect();
+            const containerBBox = container.node().getBoundingClientRect();
+            const padding = 12;
+            let top =
+              circleBBox.top - padding - tooltipBBox.height - containerBBox.top;
+            let arrowTop = top + tooltipBBox.height;
+            tooltipArrow.classed("up", true).classed("down", false);
+            if (top < containerBBox.top) {
+              top = circleBBox.bottom + padding - containerBBox.top;
+              arrowTop = top;
+              tooltipArrow.classed("up", false).classed("down", true);
+            }
             let left =
-              (circleBox.left + circleBox.right) / 2 -
-              tooltipBox.width / 2 -
-              containerBox.left;
+              (circleBBox.left + circleBBox.right) / 2 -
+              tooltipBBox.width / 2 -
+              containerBBox.left;
+            const arrowLeft = left + tooltipBBox.width / 2;
             if (left < 0) {
               left = 0;
             }
-            if (left + tooltipBox.width > containerBox.width) {
-              left = containerBox.width - tooltipBox.width;
+            if (left + tooltipBBox.width > containerBBox.width) {
+              left = containerBBox.width - tooltipBBox.width;
             }
-            let top = circleBox.top - 5 - tooltipBox.height - containerBox.top;
-            if (top < containerBox.top) {
-              top = circleBox.bottom + 5 - containerBox.top;
-            }
-            tooltip.style("transform", `translate(${left}px,${top}px)`);
+            tooltipBox.style("transform", `translate(${left}px,${top}px)`);
+            tooltipArrow.style(
+              "transform",
+              `translate(${arrowLeft}px,${arrowTop}px)translate(-50%,-50%)rotate(45deg)`
+            );
 
-            tooltip.transition().style("opacity", 1);
-            d3.select(this)
-              .transition()
-              .attr("r", circleRadius * 1.5);
+            tooltipBox.transition().style("opacity", 1);
+            tooltipArrow.transition().style("opacity", 1);
+            d3.select(this).transition().attr("stroke-opacity", 0.3);
           }
 
           function hideTooltip() {
-            tooltip.transition().style("opacity", 0);
-            d3.select(this).transition().attr("r", circleRadius);
+            tooltipBox.transition().style("opacity", 0);
+            tooltipArrow.transition().style("opacity", 0);
+            d3.select(this).transition().attr("stroke-opacity", 0);
           }
 
           function addSeriesHighlight(d) {
@@ -361,6 +392,11 @@
                   .attr("fill", function () {
                     return d3.select(this.parentNode).datum().color;
                   })
+                  .attr("stroke", function () {
+                    return d3.select(this.parentNode).datum().color;
+                  })
+                  .attr("stroke-width", circleStrokeWidth)
+                  .attr("stroke-opacity", 0)
                   .on("mouseenter", showTooltip)
                   .on("mouseleave", hideTooltip)
               );
@@ -440,10 +476,13 @@
                 g
                   .append("text")
                   .attr("class", "axis-label")
-                  .attr("x", -margin.left)
-                  .attr("y", y.range()[1])
-                  .attr("dy", `${-1.1}em`)
-                  .attr("text-anchor", "start")
+                  .attr("dy", "1em")
+                  .attr("dx", "0.35em")
+                  .attr(
+                    "transform",
+                    `translate(${-margin.left},${margin.top})rotate(-90)`
+                  )
+                  .attr("text-anchor", "end")
                   .attr("font-weight", "bold")
                   .attr("fill", "black")
                   .text(label)
@@ -472,13 +511,18 @@
               div
                 .append("div")
                 .append("select")
-                .attr("class", "name-control-select selectpicker form-control")
+                .attr(
+                  "class",
+                  "name-control-select selectpicker form-control form-control-sm"
+                )
                 .attr("multiple", "multiple")
                 .attr("data-container", "body")
                 .selectAll("option")
                 .data(names)
                 .join("option")
-                .attr("selected", true)
+                .attr("selected", (d) =>
+                  selectedNames.includes(d) ? "selected" : null
+                )
                 .attr("value", (d) => d)
                 .text((d) => d)
             );
@@ -523,17 +567,17 @@
                 .append("select")
                 .attr(
                   "class",
-                  "measure-control-select selectpicker show-tick form-control"
+                  "measure-control-select selectpicker show-tick form-control form-control-sm"
                 )
                 .attr("data-container", "body")
                 .selectAll("option")
                 .data(measures)
                 .join("option")
                 .attr("selected", (d) =>
-                  d === selectedMeasure ? "selected" : null
+                  d.name === selectedMeasure ? "selected" : null
                 )
-                .attr("value", (d) => d)
-                .text((d) => d)
+                .attr("value", (d) => d.name)
+                .text((d) => d.name)
             );
 
           $(".measure-control-select")
@@ -544,7 +588,7 @@
               isSelected,
               previousValue
             ) {
-              dispatch.call("measurechange", null, measures[clickedIndex]);
+              dispatch.call("measurechange", null, measures[clickedIndex].name);
             });
 
           function destroy() {
