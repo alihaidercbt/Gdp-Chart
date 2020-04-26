@@ -1,10 +1,13 @@
-   const dataUrl =
+ const dataUrl =
         "https://gist.githubusercontent.com/vondukeelstein/32a1d7b886a27542527bb44477260ae8/raw/a84645468e86b325715caf13f01aa7ffbd0102f4/graphchart.csv";
       function renderGDPLineChart(dataUrl) {
         function formatSI(value) {
           const string = d3.format("~s")(value);
-          if (["T", "B", "M"].includes(string[string.length - 1])) {
+          const prefix = string[string.length - 1];
+          if (["T", "M"].includes(prefix)) {
             return `${string.slice(0, -1)} ${string[string.length - 1]}n`;
+          } else if (prefix === "G") {
+            return `${string.slice(0, -1)} Bn`;
           } else {
             return string;
           }
