@@ -1,8 +1,10 @@
-<div class="section-body">
-<style>
-
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
+    <title>Gateway Capital || Business Sales Navigator</title>
+    <style>
 :root {
     --color-blue-dark: #15219A;
     --color-blue-light: #2F52F0;
@@ -854,6 +856,12 @@ input[type="number"] {
 
 
 </style>
+
+</head>
+<body>
+
+<div class="section-body">
+
         <div class="container">
             <div class="slider">
                 <div class="card card1 active">
@@ -1415,5 +1423,5 @@ input[type="number"] {
         }
     
     </script>
-
 </body>
+</html>
