@@ -19,7 +19,7 @@
                                 <h1 class="main-heading main-heading-dark main-heading-big">Cash at Close <span class="big-word">Calculator</span> </h1>
                             </div>
                             <div class="shape shape-md text-center py-0 mt-0 mb-0">
-                                <img src="images/step-1.png" alt="Step to move further picture" width="100%">
+                                <img src="https://uploads-ssl.webflow.com/5e85e0923d42b8410ba4bfd8/5f03add48346641625615ca4_step-1.png" alt="Step to move further picture" width="100%">
                             </div>
                         </div>
                         <div class="card-body bg-blue">
@@ -50,7 +50,7 @@
                                 </div>
                                 <div class="d-flex form-group-submit">
                                     <div class="shape d-flex px-0">
-                                        <p class="step-indication">Step 2 <img src="images/step-2.png" alt="Arrow Rigth Image" width="50rem"></p>
+                                        <p class="step-indication">Step 2 <img src="https://uploads-ssl.webflow.com/5e85e0923d42b8410ba4bfd8/5f03add332f38b5883c2bde9_step-2.png" alt="Arrow Rigth Image" width="50rem"></p>
                                         <a id="calculate" class='form-input-submit'>Calculate</a>
                                     </div>
                                 </div>
@@ -110,7 +110,7 @@
                             <div class="shape shape-md shape-border bg-white text-dark mt-0">
                                 <p class="attribute-value attribute-value-big mb-0" id="boost_sale_price">---</p>
                             </div>
-                            <img src="images/Arch Arrow_High Peak (1).png" alt="Arrow" class="sale_price_arrow"> 
+                            <img src="https://uploads-ssl.webflow.com/5e85e0923d42b8410ba4bfd8/5f03add3b309fc90b190bf42_Arch%20Arrow_High%20Peak%20(1).png" alt="Arrow" class="sale_price_arrow"> 
                         </div>
                     </div>
                 </div>
@@ -327,12 +327,12 @@
                 </div>
                 <div class="slider-controls">
                     <div class="prev">
-                        <img src="images/slider-prev.png" alt="Previous Arrow" class="btn-prev">
+                        <img src="https://uploads-ssl.webflow.com/5e85e0923d42b8410ba4bfd8/5f03add32b09ff68fde36ccd_slider-prev.png" alt="Previous Arrow" class="btn-prev">
                     </div>
                     
                     <div class="next">
                         <span class="arrow-up-text active">Step 3</span>
-                        <img src="images/slider-next.png" alt="Next Arrow" class="btn-next">
+                        <img src="https://uploads-ssl.webflow.com/5e85e0923d42b8410ba4bfd8/5f03add30a0f0c364bfda0e7_slider-next.png" alt="Next Arrow" class="btn-next">
                         <span class="arrow-down-text active">Boost sale price </span>
                     </div>
                 </div>
@@ -340,7 +340,7 @@
             </div>
         </div>
     </div>
-    <script src="js/script.js"></script>
+    <script src="https://rawcdn.githack.com/funwithkami/Gdp-Chart/763bd25e0a9151d5728fbcf9cde36173686ee337/script.js"></script>
 
 </body>
 </html>
