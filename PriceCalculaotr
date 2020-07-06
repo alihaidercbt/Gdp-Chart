@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
+    <title>Gateway Capital || Business Sales Navigator</title>
+    <link rel="stylesheet" href="https://use.typekit.net/kni1ywc.css">                    
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    <div class="section-body">
+        <div class="container">
+            <div class="slider">
+                <div class="card card1 active">
+                    <div class="card-top-section bg-grey border-grey pt-0">
+                        <div class="card-header d-flex bg-grey">
+                            <div class="shape shape-md">
+                                <h1 class="main-heading main-heading-dark main-heading-big">Cash at Close <span class="big-word">Calculator</span> </h1>
+                            </div>
+                            <div class="shape shape-md text-center py-0 mt-0 mb-0">
+                                <img src="images/step-1.png" alt="Step to move further picture" width="100%">
+                            </div>
+                        </div>
+                        <div class="card-body bg-blue">
+                            <form action="#">
+                                <div class="d-flex">
+                                    <div class="shape shape-sm p-0 mb-0 mr-3">
+                                        <label class="form-label" for="revenueInput1">Revenue</label>
+                                    </div>
+                                    <div class="shape shape-md-big p-0">
+                                        <input type="number" class="form-input" id="revenueInput1">
+                                    </div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="shape shape-sm p-0 mb-0 mr-3">
+                                        <label class="form-label" for="revenueInput1">Profit</label>
+                                    </div>
+                                    <div class="shape shape-md-big p-0">
+                                        <input type="number" class="form-input" id="profitInput1">
+                                    </div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="shape shape-sm p-0 mb-0 mr-3">
+                                        <label class="form-label" for="revenueInput1">Owner Salary</label>
+                                    </div>
+                                    <div class="shape shape-md-big p-0">
+                                        <input type="number" class="form-input" id="salaryInput1">
+                                    </div>
+                                </div>
+                                <div class="d-flex form-group-submit">
+                                    <div class="shape d-flex px-0">
+                                        <p class="step-indication">Step 2 <img src="images/step-2.png" alt="Arrow Rigth Image" width="50rem"></p>
+                                        <a id="calculate" class='form-input-submit'>Calculate</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex">
+                            <div class="shape shape-sm mt-0 px-0 d-sm-none mr-3">
+                                <h2 class="mb-0 text-light">Estimated <br> Sale Price</h2>
+                            </div>
+                            <div class="shape shape-md mt-0 px-0 d-sm-block">
+                                <h2 class="mb-0 text-light">Estimated Sale Price</h2>
+                            </div>
+
+                            <div class="shape shape-md-big shape-border bg-white text-dark mt-0">
+                                <p class="attribute-value attribute-value-big mb-0" id="sale_price">---</p>
+                            </div>
+                        </div>
+                        <span class="small mt-1">*company value is an estimate for demonstration of each saving only. This is not an official valuation.</span>
+                    </div>
+                </div>   
+                <div class="card card2">
+                    <div class="card-top-section bg-blue border-blue pt-0">
+                        <div class="card-header">
+                            <div class="shape shape-lg">
+                                <h1 class="main-heading main-heading-light">
+                                    <span class="w-light">Learn <b> 7 Strategies </b> in the </span><br><span class="big">Business Sales Navigator&reg;</b><br>
+                                    <span class="w-light">To...</span>
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="card-body bg-grey">
+                            <div class="d-flex trans-up">
+                                <div class="shape shape-md mb-0 p-0">
+                                    <p class="attribute text-dark"><b class="big">Up</b> your sale price by</p>
+                                </div>
+                                <div class="shape shape-md bg-white text-dark shape-border">
+                                    <p class="attribute-value attribute-value-big mb-0" id="up_sale_price">---</p>
+                                </div>
+                            </div>
+                            <div class="d-flex trans-up">
+                                <div class="shape shape-md mb-0 p-0">
+                                    <p class="attribute text-dark"><b class="big">Drop</b> &nbsp;your cost by</p>
+                                </div>
+                                <div class="shape shape-md bg-white text-dark shape-border mb-0">
+                                    <p class="attribute-value attribute-value-big mb-0" id="drop_costs">---</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex boost_sale_price_div">
+                            <div class="shape shape-md mt-0">
+                                <h2 class="mb-0 text-light footer-heading"><span class="big">BOOST your <br> </span>Sale Price to</h2>
+                            </div>
+                            <div class="shape shape-md shape-border bg-white text-dark mt-0">
+                                <p class="attribute-value attribute-value-big mb-0" id="boost_sale_price">---</p>
+                            </div>
+                            <img src="images/Arch Arrow_High Peak (1).png" alt="Arrow" class="sale_price_arrow"> 
+                        </div>
+                    </div>
+                </div>
+                <div class="card card3">
+                    <div class="card-top-section bg-blue-dark border-blue">
+                        <div class="card-header d-flex">
+                            <div class="shape shape-md bg-blue text-light">
+                                <h2 class="attribute-heading">Sale Price</h2>
+                            </div>
+                            <div class="d-flex shape-sm-md flex-direction-row">
+                                <div class="shape shape-sm-md bg-blue text-light">
+                                    <h2 class="float-heading">Before</h2>
+                                    <div class="label-shape-sm" style="padding: .4rem 0;">
+                                        <h2 class="price-bold" id="be_sale_price">---</h2>
+                                    </div>
+                                </div>
+                                <div class="shape shape-sm-md bg-blue text-light">
+                                    <h2 class="float-heading">After</h2>
+                                    <div class="label-shape-sm" style="padding: .4rem 0;">
+                                        <h2 class="price-bold" id="af_sale_price">---</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body px-0">
+                            <div class="d-flex d-sm-block text-center">
+                                <div class="shape bg-yellow text-dark">
+                                    <h2 class="attribute-heading">Closing Costs</h2>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex d-sm-block mt-2">
+                                <div class="shape shape-md text-light text-center">
+                                    <p class="attribute mb-0"><b>Legal Costs</b></p>
+                                </div>
+                                <div class="d-flex shape-md flex-direction-row">
+                                    <div class="shape shape-sm-md bg-yellow text-dark">
+                                        <h2 class="float-heading text-light d-sm-block">Before</h2>
+                                        <p class="attribute-value mb-0" id="sm-be_legal_costs">---</p>
+                                    </div>
+                                    <div class="shape shape-sm-md bg-yellow text-dark">
+                                        <h2 class="float-heading text-light d-sm-block">After</h2>
+                                        <p class="attribute-value mb-0" id="sm-af_legal_costs">---</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex d-sm-block">
+                                <div class="shape shape-md text-light text-center">
+                                    <p class="attribute mb-0"><b>Accounting Costs</b></p>
+                                </div>
+                                <div class="d-flex shape-md flex-direction-row">
+                                    <div class="shape shape-sm-md bg-yellow text-dark">
+                                        <h2 class="float-heading text-light d-sm-block">Before</h2>
+                                        <p class="attribute-value mb-0" id="sm-be_accnt_costs">---</p>
+                                    </div>
+                                    <div class="shape shape-sm-md bg-yellow text-dark">
+                                        <h2 class="float-heading text-light d-sm-block">After</h2>
+                                        <p class="attribute-value mb-0" id="sm-af_accnt_costs">---</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex d-sm-block">
+                                <div class="shape shape-md text-light text-center">
+                                    <p class="attribute mb-0"><b>Broker Costs</b></p>
+                                </div>
+                                <div class="d-flex shape-md flex-direction-row">
+                                    <div class="shape shape-sm-md bg-yellow text-dark">
+                                        <h2 class="float-heading text-light d-sm-block">Before</h2>
+                                        <p class="attribute-value mb-0" id="sm-be_broker_costs">---</p>
+                                    </div>
+                                    <div class="shape shape-sm-md bg-yellow text-dark">
+                                        <h2 class="float-heading text-light d-sm-block">After</h2>
+                                        <p class="attribute-value mb-0" id="sm-af_broker_costs">---</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex d-sm-block">
+                                <div class="shape shape-md text-light text-center">
+                                    <p class="attribute mb-0"><b>Other Costs*</b></p>
+                                </div>
+                                <div class="d-flex shape-md flex-direction-row">
+                                    <div class="shape shape-sm-md bg-yellow text-dark">
+                                        <h2 class="float-heading text-light d-sm-block">Before</h2>
+                                        <p class="attribute-value mb-0" id="sm-be_other_costs">---</p>
+                                    </div>
+                                    <div class="shape shape-sm-md bg-yellow text-dark">
+                                        <h2 class="float-heading text-light d-sm-block">After</h2>
+                                        <p class="attribute-value mb-0" id="sm-af_other_costs">---</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex d-sm-none">
+                                <div class="shape shape-md text-light relative text-sm-center">
+                                    <p class="attribute">Legal Costs</p>
+                                    <p class="attribute">Accounting Costs</p>
+                                    <p class="attribute">Broker Costs</p>
+                                    <p class="attribute">*Other Costs</p>
+                                    <p class="attribute mb-0"><b>Total Costs</b></p>
+                                    <hr class="hr-1">
+                                    <hr class="hr-2">
+                                    <span class="floating-text">Closing Costs</span>
+                                </div>
+                                <div class="d-flex shape-md flex-direction-row">
+                                    <div class="shape shape-sm-md bg-white text-dark text-center">
+                                        <h2 class="float-heading text-light d-sm-block">Before</h2>
+                                        <p class="attribute-value w-400" id="be_legal_costs">---</p>
+                                        <p class="attribute-value w-400" id="be_accnt_costs">---</p>
+                                        <p class="attribute-value w-400" id="be_broker_costs">---</p>
+                                        <p class="attribute-value w-400" id="be_other_costs">---</p>
+                                        <p class="attribute-value mb-0" id="be_total_costs">---</p>
+                                    </div>
+                                    <div class="shape shape-sm-md bg-white text-dark text-center">
+                                        <h2 class="float-heading text-light d-sm-block">After</h2>
+                                        <p class="attribute-value w-400" id="af_legal_costs">---</p>
+                                        <p class="attribute-value w-400" id="af_accnt_costs">---</p>
+                                        <p class="attribute-value w-400" id="af_broker_costs">---</p>
+                                        <p class="attribute-value w-400" id="af_other_costs">---</p>
+                                        <p class="attribute-value mb-0" id="af_total_costs">---</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex d-sm-none">
+                                <div class="shape shape-md text-light">
+                                    <p class="attribute mb-0"><b>Cash at Close</b></p>
+                                </div>
+                                <div class="d-flex shape-md flex-direction-row">
+                                    <div class="shape shape-sm-md bg-white text-dark text-center">
+                                        <h2 class="float-heading text-light d-sm-block">Before</h2>
+                                        <p class="attribute-value mb-0" id="be_cash_at_close">---</p>
+                                    </div>
+                                    <div class="shape shape-sm-md bg-white text-dark text-center">
+                                        <h2 class="float-heading text-light d-sm-block">After</h2>
+                                        <p class="attribute-value mb-0" id="af_cash_at_close">---</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <div class="shape shape-md text-light">
+                                    <p class="attribute mb-0"><b>Income Tax</b></p>
+                                </div>
+                                <div class="d-flex shape-md flex-direction-row">
+                                    <div class="shape shape-sm-md bg-white text-dark text-center mb-0">
+                                        <h2 class="float-heading text-light d-sm-block">Before</h2>
+                                        <p class="attribute-value mb-0" id="be_income_tax">---</p>
+                                    </div>
+                                    <div class="shape shape-sm-md bg-white text-dark text-center mb-0">
+                                        <h2 class="float-heading text-light d-sm-block">After</h2>
+                                        <p class="attribute-value mb-0" id="af_income_tax">---</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer numbers-card">
+                        <div class="d-flex">
+                            <div class="shape shape-md mt-0 d-sm-none px-0">
+                                <h2 class="mb-0 attribute-heading">Take Home Cash</h2>
+                            </div>
+                            <div class="shape shape-md bg-blue-dark shape-border mt-0 d-sm-block text-center">
+                                <h2 class="mb-0 attribute-heading">Take Home Cash</h2>
+                            </div>
+                            <div class="d-flex shape-md flex-direction-row">
+                                <div class="shape shape-sm-md shape-border bg-white text-dark mt-0">
+                                    <h2 class="float-heading text-light d-sm-block">Before</h2>
+                                    <p class="attribute-value attribute-value-big mb-0" id="be_take_home_cash">---</p>
+                                </div>
+                                <div class="shape shape-sm-md shape-border bg-white text-dark mt-0">
+                                    <h2 class="float-heading text-light d-sm-block">After</h2>
+                                    <p class="attribute-value attribute-value-big mb-0" id="af_take_home_cash">---</p>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="small mt-1 text-center">*actual transaction costs vary. Average costs are used for demonstration purposes.</span>
+                    </div>
+                </div>
+                <div class="card card4">
+                    <div class="card-top-section bg-blue-dark border-blue pt-0">
+                        <div class="card-header">
+                            <div class="shape shape-lg">
+                                <h1 class="main-heading main-heading-light">
+                                    <span class="light">Enjoy the </span><br><b class="big"> Business Sales Navigator&reg</b>
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="card-body bg-grey">
+                            <div class="d-flex">
+                                <div class="shape shape-md mb-0 p-0">
+                                    <h2 class="mb-0 text-dark attribute-heading absolutely"><span class="big">Absolutely</span></h2>
+                                </div>
+                                <div class="shape shape-md bg-white text-dark shape-border free-padding">
+                                    <p class="attribute-value attribute-value-big mb-0"> Free </p>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <div class="shape shape-lg text-center">
+                                    <h2 class="text-dark w-light">and learn how to</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex">
+                            <div class="shape shape-md mt-0">
+                                <h2 class="mb-0 text-light attribute-heading attribute-heading-large">Take Home Your</h2>
+                            </div>
+                            <div class="shape shape-md shape-border bg-white text-dark mt-0">
+                                <p class="attribute-value attribute-value-big mb-0" id="capture">---</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <div class="prev">
+                        <img src="images/slider-prev.png" alt="Previous Arrow" class="btn-prev">
+                    </div>
+                    
+                    <div class="next">
+                        <span class="arrow-up-text active">Step 3</span>
+                        <img src="images/slider-next.png" alt="Next Arrow" class="btn-next">
+                        <span class="arrow-down-text active">Boost sale price </span>
+                    </div>
+                </div>
+                <div class="indicator"></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+
+</body>
+</html>
